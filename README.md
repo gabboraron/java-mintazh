@@ -49,7 +49,7 @@
 - Ha a program nem kapott paramétert, akkor írjon ki hibaüzenetet.
 - Hívja meg a Market objektum sale metódusát és a visszakapott lista minden egyes elemét írja ki a képernyőre (a show metódus segítségével).
 
-#Tesztelés
+# Tesztelés
 - Ha a program paraméterének a fruit.txt fájlban található bemenetet adjuk meg, akkor a következő kimenetet kell kapnunk:
 
 - - barack (55 Ft)
