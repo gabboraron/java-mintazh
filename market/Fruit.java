@@ -1,5 +1,7 @@
+package market;
 import java.util.*;
 import java.io.*;
+
 
 public class Fruit{
 	private String name;
@@ -106,7 +108,7 @@ public class Fruit{
 		//this.cheapestFruit.name = name;*/
 	}
 	
-	public static void main(String[] args){
+	/*public static void main(String[] args){
 		//Fruit myFruit = new Fruit(args[0],Integer.parseInt(args[1]));
 		Fruit myFruit = new Fruit();
 		myFruit = myFruit.make(args[0],Integer.parseInt(args[1]));
@@ -120,6 +122,6 @@ public class Fruit{
 		//System.out.println("price:" + mySndFruit.getPrice());
 		System.out.println(mySndFruit.show());
 		System.out.println("CHEAPEST: " + getCheapestFruit().show());
-	}
+	}*/
 	
 }
