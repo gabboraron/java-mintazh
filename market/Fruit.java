@@ -6,10 +6,14 @@ public class Fruit{
 	private int price;
 	
 	//KONSTRUKTOR
+	public Fruit (){
+		System.out.println("URES");
+	}
 	public Fruit (String name, int price){
 		this.name = name;
 		this.price = price;
 		
+		//System.out.println("NAME/PRICE: " + this.name + "/" + this.price);
 		//System.out.println("NAME/PRICE SET");
 		//System.out.println("getCheapestFruit(): " + getCheapestFruit());
 		//System.out.println("getCheapestFruit(): " + getCheapestFruit().price);
@@ -39,10 +43,10 @@ public class Fruit{
 		return this.price > currentFruitPrice;
 	}
 	
-	public static Fruit make(String name, int price){
+	public Fruit make(String name, int price){
 		if((name.length() > 1) && (name.matches("[a-zA-Z]+"))){
 			System.out.println("NAME OK");
-			if((price<5001) && (price>0) && (((price % 2) == 0) || ((price % 2) == 5))){
+			if((price<5001) && (price>0) && (((price % 10) == 0) || ((price % 10) == 5))){
 				System.out.println("FRUIT CREATED");
 				setCheapestFruit(name, price);
 				return new Fruit(name, price);
@@ -55,6 +59,10 @@ public class Fruit{
 	
 	public String show(){
 		String tmpPrice = String.valueOf(this.price);
+		/*System.out.println("****");
+		System.out.println("name: "+ this.name);
+		System.out.println("price: "+ this.price);
+		System.out.println("****");*/
 		if(name.length()>3){
 			tmpPrice = "";
 			String tmpChar = "";
@@ -67,18 +75,23 @@ public class Fruit{
 				tmpPrice = String.valueOf(this.price).charAt(i) + tmpPrice;
 				++counter;
 			}
+			return this.name + " (" + tmpPrice + " Ft)";
 		}
-		return this.name + " (" + tmpPrice + " Ft)";
+		return this.name + " (" + this.price + " Ft)";
 	} 
 	
 	public static Fruit cheapestFruit = null;
 	public static Fruit getCheapestFruit(){
+		/*System.out.println("**LOG**");
+		System.out.println("cheapestFruit.name: " + cheapestFruit.name);
+		System.out.println("**LOG**");*/
 		return cheapestFruit;
 	}
 	public static void setCheapestFruit(String name, int price){
 		if (getCheapestFruit() == null){
 			cheapestFruit = new Fruit (name, price);
-			//System.out.println("CHEAPEST NAME/PRICE INITIALIZED");
+			//System.out.println("CHEAPEST NAME/PRICE INITIALIZED: "+ cheapestFruit.name + "/" + cheapestFruit.price);
+			//System.out.println("CHEAPEST NAME/PRICE INITIALIZED: "+ getCheapestFruit().name + "/" );
 		} else {
 			if(getCheapestFruit().price> price){
 				cheapestFruit = new Fruit (name, price);
@@ -95,15 +108,18 @@ public class Fruit{
 	
 	public static void main(String[] args){
 		//Fruit myFruit = new Fruit(args[0],Integer.parseInt(args[1]));
-		Fruit myFruit = make(args[0],Integer.parseInt(args[1]));
+		Fruit myFruit = new Fruit();
+		myFruit = myFruit.make(args[0],Integer.parseInt(args[1]));
+		//System.out.println("myFruit.name " + myFruit.name);
 		System.out.println(myFruit.show());
 		//System.out.print("name:" + myFruit.getName() + " ");
 		//System.out.println("price:" + myFruit.getPrice());
-		Fruit mySndFruit = make("banan",300);
+		Fruit mySndFruit = new Fruit();
+		mySndFruit = mySndFruit.make("banan",300);
 		//System.out.print("name:" + mySndFruit.getName() + " ");
 		//System.out.println("price:" + mySndFruit.getPrice());
 		System.out.println(mySndFruit.show());
-		System.out.println("CHEAPEST: " + mySndFruit.getCheapestFruit().show());
+		System.out.println("CHEAPEST: " + getCheapestFruit().show());
 	}
 	
 }
